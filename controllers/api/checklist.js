@@ -1,4 +1,4 @@
-const Note = require('../../models/note')
+const Checklist = require('../../models/checklist')
 const User = require('../../models/user')
 module.exports = {
     show,
@@ -7,8 +7,8 @@ module.exports = {
 
 async function show(req, res) {
     try {
-     const notes = await User.find({user: req.user._id})
-    res.json(notes)   
+     const checklist = await Checklist.find()
+    res.json(checklist)   
     } catch (err) {
         console.error(`${err}`);
     }
@@ -17,9 +17,9 @@ async function show(req, res) {
 
 async function add(req, res) {
    try {
-    req.body.user = req.user._id
-    const note = await Note.create({text: req.body.text, user: req.user})
-    res.json(note)
+    const checklist = new Checklist({text: req.body.text})
+    checklist.save()
+    res.json(checklist)
     } catch (err) {
         console.error(`${err}`);
     }

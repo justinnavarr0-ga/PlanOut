@@ -11,7 +11,7 @@ export default function NavBar({user, updateUser}) {
 
   return (
     <nav>
-      <Link to="/personal">My Checklist</Link>
+      <Link to="/checklist">My Checklist</Link>
       &nbsp; | &nbsp;
       <Link to="/trips">My Trips</Link>
       &nbsp; | &nbsp;
