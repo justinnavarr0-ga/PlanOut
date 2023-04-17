@@ -14,7 +14,9 @@ app.use(require('./config/checkToken'));
 
 //routes
 app.use('/api/users', require('./routes/api/users'));
-app.use('/api/notes', require('./routes/api/notes'));
+app.use('/api/checklist', require('./routes/api/checklist'))
+// app.use('/api/chat', require('./routes/api/chat'))
+
 //catch all
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
