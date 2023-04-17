@@ -1,0 +1,6 @@
+POST http://localhost:3000/checklist/new
+Content-Type: application/json
+
+{
+    "text": "WHY NO WORK"
+}
