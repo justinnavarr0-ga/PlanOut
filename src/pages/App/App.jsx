@@ -9,13 +9,13 @@ import TripPage from '../TripPage/TripPage';
 import MyCheckList from '../MyCheckList/MyCheckList';
 
 export default function App() {
-
+  
   const [user, setUser] = useState(getUser())
 
   function updateUser(userState){
     setUser(userState)
   }
-
+  console.log(user)
   return (
     <main className="App">
 

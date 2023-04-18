@@ -14,8 +14,8 @@ const TripSchema = new Schema({
     users: [{ type: Schema.Types.ObjectId, ref: 'User' }],
 
     tripChecklist: [TripTodoSchema], 
-
-
+    Destination: String,
+    
 },{
     timestamps: true
   }

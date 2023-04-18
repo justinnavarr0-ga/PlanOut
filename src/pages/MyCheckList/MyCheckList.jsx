@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import * as checklistAPI from '../../utilities/checklist-api'
-import { addItem } from '../../utilities/checklist-api'
 import CheckListItems from '../../components/CheckListItems/CheckListItems'
 export default function MyCheckList() {
 

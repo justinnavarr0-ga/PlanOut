@@ -15,17 +15,26 @@ export default class SignUpForm extends Component {
   handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      // We don't want to send the 'error' or 'confirm' property,
-      //  so let's make a copy of the state object, then delete them
-      const formData = {...this.state}
+      // Create user on the server
+      const { name: username, password, email } = this.state;
+      const data = {
+        username,
+        secret: password,
+        email,
+        first_name: '',
+        last_name: '',
+        custom_json: {},
+      };
+      // Sign up the user in the client
+      const formData = { ...this.state };
       delete formData.error;
       delete formData.confirm;
-      const user = await signUp(formData)
-      this.props.setUser(user)
+      const user = await signUp(formData);
+      this.props.setUser(user);
     } catch {
-      this.setState({ error: 'Sign Up Failed - Try Again'})
+      this.setState({ error: 'Sign Up Failed - Try Again' });
     }
-  }
+  };
 
   handleChange = (evt) => {
     this.setState({ [evt.target.name]: evt.target.value, error: '' })
