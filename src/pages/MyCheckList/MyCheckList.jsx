@@ -19,11 +19,15 @@ useEffect( function() {
 
 const handleAddItem = async (evt) => {
     evt.preventDefault()
-    const newlyAddedItem = await addItem({text: newItem})
+    const newlyAddedItem = await checklistAPI.addItem({text: newItem})
     setChecklist([...checklist, newlyAddedItem])
     setNewItem('')
 }
 
+const handleDelete = async (evt) => {
+    const checklistItem = checklistAPI.deleteItem(evt._id)
+    setChecklist(checklist => checklist.filter(item => item.id === checklistItem.id))
+}
 
 
 const handleChange = (evt) => {
@@ -34,7 +38,7 @@ console.log(evt.target.value)
   return (
     <div>
         <h1>My Checklist</h1>
-        <CheckListItems checklist={checklist}/>
+        <CheckListItems checklist={checklist} setChecklist={setChecklist} handleDelete={handleDelete}/>
         
         <form onSubmit={handleAddItem}>
             <h3>Add something here </h3>

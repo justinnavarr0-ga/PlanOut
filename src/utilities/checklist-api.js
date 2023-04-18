@@ -8,8 +8,11 @@ export function getWholeChecklist(){
   }
 
 export async function addItem(newItem){ 
-    console.log('API', newItem)
     return sendRequest(`${BASE_URL}/new`, 'POST', newItem)
+}
+
+export async function deleteItem(itemId) {
+    return sendRequest(`${BASE_URL}/${itemId}`, 'DELETE', itemId)
 }
 
 // export async function addItem(newItem){
