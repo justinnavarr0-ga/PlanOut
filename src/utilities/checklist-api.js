@@ -11,8 +11,8 @@ export async function addItem(newItem){
     return sendRequest(`${BASE_URL}/new`, 'POST', newItem)
 }
 
-export async function deleteItem(itemId) {
-    return sendRequest(`${BASE_URL}/${itemId}`, 'DELETE', itemId)
+export async function deleteItem(id) {
+    return sendRequest(`${BASE_URL}/${id}`, 'DELETE', {id})
 }
 
 // export async function addItem(newItem){

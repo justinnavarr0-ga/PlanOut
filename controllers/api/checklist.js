@@ -1,4 +1,3 @@
-const checklist = require('../../models/checklist');
 const Checklist = require('../../models/checklist')
 module.exports = {
     show,
@@ -17,7 +16,6 @@ async function show(req, res) {
 }
 
 async function add(req, res) {
-    console.log(req.body)
    try {
     const checklistItem = new Checklist(
         {text: req.body.text}
@@ -32,11 +30,9 @@ async function add(req, res) {
 }
 
 async function deleteOne(req, res) {
-    console.log(req.body)
     try {
-    const checklist = await Checklist.findOneAndDelete(req.body.id)
+    const checklist = await Checklist.findByIdAndDelete(req.body.id)
     res.json(checklist)
-
     } catch (err) {
         console.error(`${err}`);
     }

@@ -25,13 +25,16 @@ const handleAddItem = async (evt) => {
 }
 
 const handleDelete = async (evt) => {
-    const checklistItem = checklistAPI.deleteItem(evt._id)
-    setChecklist(checklist => checklist.filter(item => item.id === checklistItem.id))
+    console.log('MYCHECKLIST handleDelete function', evt)
+    const checklistItem = checklistAPI.deleteItem(evt)
+    console.log('checklist', checklist)
+    console.log('DELETE THIS ITEM', checklistItem)
+    console.log('checklist again', checklist)
+    setChecklist(checklist)
+    // setChecklist(checklist => checklist.filter(item => item._id !== checklist._id))
 }
 
-
 const handleChange = (evt) => {
-console.log(evt.target.value)
   setNewItem(evt.target.value)
 }
 
