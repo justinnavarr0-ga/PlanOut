@@ -30,8 +30,10 @@ const handleDelete = async (evt) => {
     console.log('checklist', checklist)
     console.log('DELETE THIS ITEM', checklistItem)
     console.log('checklist again', checklist)
-    setChecklist(checklist)
-    // setChecklist(checklist => checklist.filter(item => item._id !== checklist._id))
+    // setChecklist(checklist)
+    setChecklist(checklist => checklist.filter(item => item._id !== checklistItem._id))
+    //this bothered me so much because i forgot that when i pass it into the API it had to match the :id 
+    //still does not update immediately
 }
 
 const handleChange = (evt) => {

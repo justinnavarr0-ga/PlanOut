@@ -3,7 +3,6 @@ import React from 'react'
 export default function ListItem({item, handleDelete}) {
 
 const handleClick = (evt) => {
-    evt.preventDefault()
     console.log('This is the item ID', item._id)
     handleDelete(item._id)
 }

@@ -2,14 +2,16 @@ import React from 'react'
 import { ChatEngine } from 'react-chat-engine'
 import { useState, useEffect, useRef } from 'react';
 import * as chatAPI from '../../utilities/chat-api'
+
 export default function ChatPage({user}) {
 
-// useEffect(function() {
-//     async function getUser() {
-//         // const user = await chatAPI.getUser()
+useEffect(function() {
+    async function createUser(user) {
+        const username = await chatAPI.createUser(user)
 
-//     }
-// })
+    }
+    createUser()
+}, [])
 
   return (
     <div>
