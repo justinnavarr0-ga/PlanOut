@@ -1,9 +1,9 @@
 import React from 'react'
 
 export default function ListItem({item}) {
-    console.log(item)
+
+
   return (
-    <li>{item._id}{item.complete}
-    </li>
+    <li>completed: <button>O</button> {item.text} <button>x</button></li>
   )
 }

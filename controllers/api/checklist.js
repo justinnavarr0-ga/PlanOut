@@ -2,6 +2,7 @@ const Checklist = require('../../models/checklist')
 module.exports = {
     show,
     add,
+    delete: deleteOne
 }
 
 async function show(req, res) {
@@ -27,4 +28,10 @@ async function add(req, res) {
         console.error(`${err}`);
     }
 
+}
+
+async function deleteOne(req, res) {
+    try {
+    const checklist = await Checklist.findByIdAndDelete(req.params.id)
+    res.json(checklist)
 }

@@ -8,4 +8,6 @@ router.get('/', checklistCtrl.show)
 // POST /api/notes
 router.post('/new', checklistCtrl.add);
 
+router.delete('/:id', checklistCtrl.delete)
+
 module.exports = router;

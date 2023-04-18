@@ -7,6 +7,7 @@ export default function MyCheckList() {
 
 const [checklist, setChecklist] = useState([])
 const [newItem, setNewItem] = useState('')
+const [complete, setComplete] = useState(false)
 
 useEffect( function() {
     async function getChecklist() {
@@ -20,7 +21,9 @@ const handleAddItem = async (evt) => {
     evt.preventDefault()
     const newlyAddedItem = await addItem({text: newItem})
     setChecklist([...checklist, newlyAddedItem])
+    setNewItem('')
 }
+
 
 
 const handleChange = (evt) => {
