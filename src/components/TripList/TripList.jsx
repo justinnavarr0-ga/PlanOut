@@ -1,7 +1,12 @@
 import React from 'react'
+import Trip from '../Trip/Trip'
 
-export default function TripList() {
+
+export default function TripList({trips ,setTrips}) {
   return (
-    <div>TripList</div>
+    <div>
+      {trips.map((trip) => (
+        <Trip trip={trip}/>))}
+    </div>
   )
 }

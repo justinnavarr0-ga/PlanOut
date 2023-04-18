@@ -7,7 +7,7 @@ const tripsCtrl = require('../../controllers/api/trips')
 
 router.get('/', tripsCtrl.index)
 
-router.post('/new', tripsCtrl.add)
+router.post('/new', tripsCtrl.addTrip)
 
 
 module.exports = router;

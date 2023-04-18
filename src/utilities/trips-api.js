@@ -6,6 +6,6 @@ export function getAllTrips(){
     return sendRequest(BASE_URL)
   }
 
-export function createTrip(){
-    return sendRequest(`${BASE_URL}/new`, 'POST')
+export function createTrip(newTrip){
+    return sendRequest(`${BASE_URL}/new`, 'POST', newTrip)
 }

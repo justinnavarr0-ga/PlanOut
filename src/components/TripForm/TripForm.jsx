@@ -6,13 +6,6 @@ export default function TripForm({trips, setTrips, showForm, setShowForm}) {
 
 const [newTrip, setNewTrip] = useState('')
 
-useEffect( function() {
-    async function getAllTrips() {
-    const TripList = await TripsAPI.getAllTrips()
-    setTrips(TripList)    
-    }
-    getAllTrips()
-}, [])
 
 async function handleChange(evt) {
     setNewTrip(evt.target.value);
@@ -20,13 +13,9 @@ async function handleChange(evt) {
     
 async function handleSubmit(evt) {
     evt.preventDefault();
-      try {
-        const newTrip = TripsAPI.createTrip();
-        setTrips([...trips, newTrip]);
+        const newlyAddedTrip = await TripsAPI.createTrip({name: newTrip});
+        setTrips([...trips, newlyAddedTrip]);
         setShowForm(true)
-        } catch {
-          setError('Did not work. Try Again Later');
-        }
       }
 
 return (
@@ -38,6 +27,7 @@ return (
                 <form onSubmit={handleSubmit}>
                 <label>Trip Name</label><br />
                 <input type="text" name="name" value={newTrip} onChange={handleChange} required/>
+                <option></option>
                 <button type="submit">CREATE TRIP</button>
                 </form>
             </div>

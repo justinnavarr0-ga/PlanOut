@@ -25,7 +25,7 @@ const handleAddItem = async (evt) => {
 
 const handleDelete = async (evt) => {
     console.log('MYCHECKLIST handleDelete function', evt)
-    const checklistItem = checklistAPI.deleteItem(evt)
+    const checklistItem = await checklistAPI.deleteItem(evt)
     console.log('checklist', checklist)
     console.log('DELETE THIS ITEM', checklistItem)
     console.log('checklist again', checklist)
