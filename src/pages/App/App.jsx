@@ -7,6 +7,8 @@ import { getUser } from '../../utilities/users-service';
 import ChatPage from '../ChatPage/ChatPage';
 import TripPage from '../TripPage/TripPage';
 import MyCheckList from '../MyCheckList/MyCheckList';
+import TripDetailsPage from '../TripDetailsPage/TripDetailsPage';
+
 
 export default function App() {
   
@@ -25,6 +27,7 @@ export default function App() {
           <Routes>
             <Route path="/chat" element={<ChatPage user={user}/>} />
             <Route path="/trips" element={<TripPage/>}/>
+            <Route path="/trips/:tripName" element={<TripDetailsPage/>}/>
             <Route path="/checklist" element={<MyCheckList/>}/>
           </Routes>
         </>
