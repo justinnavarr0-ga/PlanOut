@@ -9,15 +9,19 @@ export default function TripForm({trips, setTrips, showForm, setShowForm, allUse
 
 
 const [newTrip, setNewTrip] = useState('')
-
+const [friends, setFriends] = useState([])
 
 async function handleChange(evt) {
     setNewTrip(evt.target.value);
     }
+
+async function handleFriends(evt) {
+    setFriends([...friends, evt.target.value])
+    }
     
 async function handleSubmit(evt) {
     evt.preventDefault();
-        const newlyAddedTrip = await TripsAPI.createTrip({name: newTrip});
+        const newlyAddedTrip = await TripsAPI.createTrip({name: newTrip, users: friends});
         setTrips([...trips, newlyAddedTrip]);
         setShowForm(true)
       }
@@ -43,7 +47,7 @@ return (
             <div className="grid grid-cols-3 gap-4">
             {allUsers.map((person) => 
               <div key={person.id} className="flex items-center">
-                <input id={person.name} type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                <input id={person.name} type="checkbox" value={person._id} onChange={handleFriends} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                 <label htmlFor={person.name} className="ml-2">{person.name}</label>
               </div>
               )}
