@@ -29,14 +29,14 @@ export default function LoginForm({ setUser }) {
 
   return (
     <>
-    <form autoComplete="off" onSubmit={handleSubmit} className="relative py-3 sm:max-w-xl sm:mx-auto">
+    <form autoComplete="off" onSubmit={handleSubmit} className="relative py-2 w-2/5 sm:mx-auto bg-gray-300 rounded-lg shadow-md">
     <div class="mb-6">
         <label class="relative left mb-2 text-sm font-medium text-blue-700 dark:text-black">Name</label>
-        <input type="text" name="email" value={credentials.email} onChange={handleChange} required class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="email" />
+        <input type="text" name="email" value={credentials.email} onChange={handleChange} required class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/3 p-3 bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="email" />
     </div>
     <div class="mb-6">
         <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your password</label>
-        <input type="password" name="password" value={credentials.password} onChange={handleChange} class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+        <input type="password" name="password" value={credentials.password} onChange={handleChange} class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/3 p-3 bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
       </div>
       <button type="submit">LOG IN</button>
     </form>

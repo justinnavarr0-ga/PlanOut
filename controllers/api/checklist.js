@@ -17,8 +17,10 @@ async function show(req, res) {
 
 async function add(req, res) {
    try {
+    console.log(req.user)
     const checklistItem = new Checklist(
-        {text: req.body.text}
+        {text: req.body.text,
+        user: req.user}
     )
     checklistItem.save()
     console.log(checklistItem)

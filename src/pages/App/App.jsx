@@ -28,7 +28,7 @@ export default function App() {
             <Route path="/chat" element={<ChatApp user={user}/>} />
             <Route path="/trips" element={<TripPage/>}/>
             <Route path="/trips/:tripName" element={<TripDetailsPage/>}/>
-            <Route path="/checklist" element={<MyCheckList/>}/>
+            <Route path="/checklist" element={<MyCheckList user={user}/>}/>
           </Routes>
         </>
         :
