@@ -1,5 +1,5 @@
-
-
+const mongoose = require('mongoose');
+const User = require('../../models/user')
 const Trip = require('../../models/Trip')
 
 module.exports = {
@@ -18,6 +18,8 @@ async function index(req, res) {
 }
 
 async function addTrip(req, res) {
+
+    console.log("BODY", req.body)
     console.log("users", req.body.users)
     console.log("NAME",req.body.name)
     try {

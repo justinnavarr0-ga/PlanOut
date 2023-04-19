@@ -7,17 +7,18 @@ import { getUser } from '../../utilities/users-service';
 import ChatApp from '../ChatPage/ChatApp';
 import TripPage from '../TripPage/TripPage';
 import MyCheckList from '../MyCheckList/MyCheckList';
-import TripDetailsPage from '../TripDetailsPage/TripDetailsPage';
+
 
 
 export default function App() {
-  
+
   const [user, setUser] = useState(getUser())
 
   function updateUser(userState){
     setUser(userState)
   }
   console.log(user)
+  
   return (
     <main className="App">
 
@@ -27,7 +28,6 @@ export default function App() {
           <Routes>
             <Route path="/chat" element={<ChatApp user={user}/>} />
             <Route path="/trips" element={<TripPage/>}/>
-            <Route path="/trips/:tripName" element={<TripDetailsPage/>}/>
             <Route path="/checklist" element={<MyCheckList user={user}/>}/>
           </Routes>
         </>

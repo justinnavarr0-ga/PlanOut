@@ -1,30 +1,21 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useState } from 'react'
 
-// cannot import useEffect not sure why
-// useEffect( function() {
-//     async function getAllUsers() {
-//     const users = await usersAPI.getAllUsers() 
-//     setAllUsers(users)
-//   }
-//     getAllUsers()
-// }, [])
+export default function TripDetailsPage({tripchecklist, users, trips, allusers}) {
+console.log(allusers)
+const [filteredUsers, setFilteredUsers] = useState([])
 
-// useEffect( function() {
-//     async function getAllUsers() {
-//     const users = await usersAPI.getAllUsers() 
-//     setAllUsers(users)
-//   }
-//     getAllUsers()
-// }, [])
 
-export default function TripDetailsPage({trip}) {
-    const {tripName} = useParams()
-    return (
-    <div>
-        {tripName}
-        <h1>Trip Details Page</h1>
-        <li>{trip}</li>
+const peopleGoing = (allusers => allusers.filter((person) => person._id === users._id))
+console.log('filteredUsers', filteredUsers)
+return (
+    <>
+     <div>
+        <h1>Users Currently going on the trip</h1>
+        {users}
+        {filteredUsers.name}
     </div>
+    </>
+   
   )
 }

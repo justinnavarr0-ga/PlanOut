@@ -1,3 +1,7 @@
+how do i fix this? 
+when i create a new trip my users are added to the trip inside the trip schema and they are saved into mongodb. but when i create another trip using the same users , get an error telling me MongoServerError: E11000 duplicate key error collection: PlanOut.trips index: users_1 dup key: { users: ObjectId('644041f63cd504fd03ac7c25') } 
+
+// this is my form 
 import React from 'react'
 import { useState } from 'react'
 import * as TripsAPI from '../../utilities/trips-api'
@@ -64,3 +68,79 @@ return (
   </>
   )
 }
+
+// this is my controller
+
+
+const User = require('../../models/user')
+const Trip = require('../../models/Trip')
+
+module.exports = {
+    index,
+    addTrip
+}
+
+async function index(req, res) {
+    try {
+    const trips = await Trip.find()
+    res.json(trips)   
+    } catch (err) {
+        console.error(`${err}`);
+    }
+    
+}
+
+async function addTrip(req, res) {
+
+    console.log("BODY", req.body)
+    console.log("users", req.body.users)
+    console.log("NAME",req.body.name)
+    try {
+        const newTrip = new Trip({
+            name: req.body.name,
+            users: req.body.users,
+            tripChecklist: req.body.tripChecklist,
+            Destination: req.body.Destination
+        });
+        await newTrip.save();
+        res.json(newTrip);
+    } catch (err) {
+     console.error(`${err}`);   
+    }
+    
+}
+
+// this is my model 
+
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const userSchema = require('./user')
+
+const TripTodoSchema = new Schema({
+    text: {type: String, required: true},
+    complete: {type: Boolean, default: false}
+},{
+    timestamps: true
+  }
+)
+
+const TripSchema = new Schema({
+    name: {type: String, required: true},
+    users: [{ type: Schema.Types.ObjectId, ref: 'User'}],
+
+    tripChecklist: [TripTodoSchema], 
+    Destination: String,
+    
+},{
+    timestamps: true
+  }
+)
+
+// TripSchema.methods.addUser = async function (userID) {
+//   const trip = this;
+//   const friends = trip.users.find(friends => friends. )
+// }
+
+const Trip = mongoose.model("Trip", TripSchema)
+
+module.exports = Trip

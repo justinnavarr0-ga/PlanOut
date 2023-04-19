@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const userSchema = require('./user')
 
 const TripTodoSchema = new Schema({
     text: {type: String, required: true},
@@ -11,7 +12,7 @@ const TripTodoSchema = new Schema({
 
 const TripSchema = new Schema({
     name: {type: String, required: true},
-    users: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    users: [{ type: Schema.Types.ObjectId, ref: 'User'}],
 
     tripChecklist: [TripTodoSchema], 
     Destination: String,
@@ -20,6 +21,12 @@ const TripSchema = new Schema({
     timestamps: true
   }
 )
+
+// TripSchema.methods.addUser = async function (userID) {
+//   const trip = this;
+//   const friends = trip.users.find(friends => friends. )
+// }
+
 const Trip = mongoose.model("Trip", TripSchema)
 
 module.exports = Trip

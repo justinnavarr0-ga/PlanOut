@@ -31,7 +31,7 @@ export default function LoginForm({ setUser }) {
     <>
     <form autoComplete="off" onSubmit={handleSubmit} className="relative py-2 w-2/5 sm:mx-auto bg-gray-300 rounded-lg shadow-md">
     <div className="mb-6">
-        <label className="relative left mb-2 text-sm font-medium text-blue-700 dark:text-black">Name</label>
+        <label className="relative left mb-2 text-sm font-medium text-blue-700 dark:text-black">Email</label>
         <input type="text" name="email" value={credentials.email} onChange={handleChange} required className="mx-auto shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/3 p-3 bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="email" />
     </div>
     <div className="mb-6">
