@@ -1,8 +1,12 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import * as TripsAPI from '../../utilities/trips-api'
 
-export default function TripForm({trips, setTrips, showForm, setShowForm}) {
+
+export default function TripForm({trips, setTrips, showForm, setShowForm, allUsers}) {
+
+
+
 
 const [newTrip, setNewTrip] = useState('')
 
@@ -35,8 +39,16 @@ return (
 						<div className="relative">
             <input type="text" name="name" value={newTrip} onChange={handleChange} required className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="" />							<label className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Trip Name</label>
 						</div>
+            
+    
+            {allUsers.map((person) => 
+  <div key={person.id}>
+    <input id={person.name} type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+    <label>{person.name}</label>
+  </div>
+)}
 						<div className="relative">
-							<button className="bg-blue-500 text-white rounded-md px-2 py-1">Submit</button>
+							<button type='submit' className="bg-blue-500 text-white rounded-md px-2 py-1">Submit</button>
 						</div>
 					</div>
 				</div>

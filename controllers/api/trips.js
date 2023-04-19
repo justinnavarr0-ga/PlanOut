@@ -18,7 +18,7 @@ async function index(req, res) {
 }
 
 async function addTrip(req, res) {
-    console.log("TEXT", req.body.text)
+    console.log("users", req.body.users)
     console.log("NAME",req.body.name)
     try {
         const newTrip = new Trip({
