@@ -15,5 +15,7 @@ export async function deleteItem(id) {
     return sendRequest(`${BASE_URL}/${id}`, 'DELETE', {id})
 }
 
-
+export async function markComplete(id) {
+    return sendRequest(`${BASE_URL}/${id}`, {id})
+}
 

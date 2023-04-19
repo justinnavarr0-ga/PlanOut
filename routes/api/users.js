@@ -10,6 +10,6 @@ router.get('/', usersCtrl.index)
 
 router.post('/', usersCtrl.create);
 router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
-
+router.post('/login', usersCtrl.login)
 
 module.exports = router;

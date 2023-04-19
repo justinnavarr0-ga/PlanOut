@@ -6,7 +6,7 @@ export default function MyCheckList({user}) {
 const [me, setMe] = useState(user)
 const [checklist, setChecklist] = useState([])
 const [newItem, setNewItem] = useState('')
-const [complete, setComplete] = useState(false)
+const [complete, setComplete] = useState(true)
 
 useEffect( function() {
     console.log('This is the user in MyCheckList', user.name)
@@ -19,6 +19,12 @@ useEffect( function() {
     }
     getChecklist()
 }, [])
+
+const changeToComplete = async (evt) => {
+  evt.preventDefault()
+  const checklistItem = await checklistAPI.markComplete(evt)
+  setComplete(checklistItem.complete === true)
+}
 
 const handleAddItem = async (evt) => {
     evt.preventDefault()
@@ -44,16 +50,25 @@ const handleChange = (evt) => {
 }
 
   return (
-    <div>
-        <h1>Group Checklist</h1>
-        
-        <CheckListItems checklist={checklist} setChecklist={setChecklist} handleDelete={handleDelete}/>
-        
-        <form onSubmit={handleAddItem}>
-            <h3>Add something here </h3>
-            <input type='text' name='item' value={newItem} onChange={handleChange}/>
-            <button type='submit'>Add Item</button>
-        </form>
+  <>
+<form onSubmit={handleAddItem}>
+<div className="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
+	<div className="bg-white rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
+        <div className="mb-4">
+            <h1 className="ml-[0px] text-left text-grey-darkest">My Checklist</h1>
+            <div className="flex mt-4">
+                <input type='text' name='item' value={newItem} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker" placeholder="Add Todo"/>
+                <button type='submit' className="flex-no-shrink p-2 border-2 rounded text-teal border-teal hover:text-white hover:bg-teal">Add</button>
+            </div>
+        </div>
+        <div>
+            <div className="flex mb-4 items-center">
+                <div className="w-full text-grey-darkest"><CheckListItems changeToComplete={changeToComplete} checklist={checklist} setChecklist={setChecklist} handleDelete={handleDelete}/></div>
+            </div>
+        </div>
     </div>
+</div>
+</form>
+    </>
   )
 }

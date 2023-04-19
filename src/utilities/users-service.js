@@ -46,3 +46,11 @@ export async function checkToken(){
     // const tokenExp = await usersAPI.checkToken()
     // return new Date(tokenExp)
 }
+
+export async function login(credentials) {
+  // Delegate the AJAX request to the users-api.js
+  // module.
+  const token = await usersAPI.login(credentials);
+  localStorage.setItem('token', token);
+  return getUser();
+}

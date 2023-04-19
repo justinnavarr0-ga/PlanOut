@@ -1,12 +1,12 @@
 import React from 'react'
 import ListItem from '../ListItem/ListItem'
 
-export default function CheckListItems({checklist, setChecklist, handleDelete}) {
+export default function CheckListItems({changeToComplete, checklist, setChecklist, handleDelete}) {
 
   return (
-    <div>
+    <ul>
         {checklist.map((item) => (
-        <ListItem item={item} key={item._id} handleDelete={handleDelete} checklist={checklist} setChecklist={setChecklist} />))}
-    </div>
+        <ListItem changeToComplete={changeToComplete} item={item} key={item._id} handleDelete={handleDelete} checklist={checklist} setChecklist={setChecklist} />))}
+    </ul>
   )
 }
