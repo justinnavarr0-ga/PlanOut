@@ -4,7 +4,7 @@ import AuthPage from '../AuthPage/AuthPage'
 import { Routes, Route } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar'
 import { getUser } from '../../utilities/users-service';
-import ChatPage from '../ChatPage/ChatPage';
+import ChatApp from '../ChatPage/ChatApp';
 import TripPage from '../TripPage/TripPage';
 import MyCheckList from '../MyCheckList/MyCheckList';
 import TripDetailsPage from '../TripDetailsPage/TripDetailsPage';
@@ -25,7 +25,7 @@ export default function App() {
         <>
           <NavBar user={user} updateUser={updateUser}/>
           <Routes>
-            <Route path="/chat" element={<ChatPage user={user}/>} />
+            <Route path="/chat" element={<ChatApp user={user}/>} />
             <Route path="/trips" element={<TripPage/>}/>
             <Route path="/trips/:tripName" element={<TripDetailsPage/>}/>
             <Route path="/checklist" element={<MyCheckList/>}/>

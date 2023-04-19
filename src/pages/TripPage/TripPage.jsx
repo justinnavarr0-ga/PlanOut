@@ -20,7 +20,6 @@ export default function TripPage() {
 
   return (
     <>
-    <h1>Trips Page</h1>
         <TripList trips={trips} setTrips={setTrips}/>
         {!showForm && <TripForm trips={trips} setTrips={setTrips} setShowForm={setShowForm} showForm={showForm}/> }
         <br />

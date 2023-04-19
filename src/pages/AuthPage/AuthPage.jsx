@@ -11,8 +11,9 @@ export default function AuthPage({setUser}) {
         <h1>Auth Page</h1>
         {showForm && <SignUpForm setUser={setUser}/>}
         {!showForm && <LoginForm setUser={setUser}/>}
+        <br />
         <h6 onClick={() => setShowForm(!showForm)}>{showForm ? 'Already Have An Account? Login Here' : 'New to the site? Click Here To Create An Account!'}</h6>
-      </>
+      </>      
   )
 }
   

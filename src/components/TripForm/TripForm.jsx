@@ -20,19 +20,30 @@ async function handleSubmit(evt) {
 
 return (
   <>
-        <button className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => setShowForm(true)}>{showForm ? '' : 'x'}</button>
-        <h1>Create A New Trip</h1> 
-            <div>
-            <div className="form-container">
-                <form onSubmit={handleSubmit}>
-                <label>Trip Name</label><br />
-                <input type="text" name="name" value={newTrip} onChange={handleChange} required/>
-                <option></option>
-                <button type="submit">CREATE TRIP</button>
-                </form>
-            </div>
-            </div>
-        
+<form onSubmit={handleSubmit}>
+	<div className="relative py-3 sm:max-w-xl sm:mx-auto">
+		<div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+    </div>
+		<div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+			<div className="max-w-md mx-auto">
+      <button id='CANCELBUTTON' className="absolute right-0 -top-1 bg-red-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => setShowForm(true)}>{showForm ? '' : 'x'}</button>
+				<div>
+					<h1 className="text-2xl font-semibold">Add a new Trip</h1>
+				</div>
+				<div className="divide-y divide-gray-200">
+					<div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+						<div className="relative">
+            <input type="text" name="name" value={newTrip} onChange={handleChange} required className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="" />							<label className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Trip Name</label>
+						</div>
+						<div className="relative">
+							<button className="bg-blue-500 text-white rounded-md px-2 py-1">Submit</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </form>
   </>
   )
 }

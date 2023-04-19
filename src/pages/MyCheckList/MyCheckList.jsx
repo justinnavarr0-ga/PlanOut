@@ -41,7 +41,7 @@ const handleChange = (evt) => {
 
   return (
     <div>
-        <h1>My Checklist</h1>
+        <h1>Group Checklist</h1>
         <CheckListItems checklist={checklist} setChecklist={setChecklist} handleDelete={handleDelete}/>
         
         <form onSubmit={handleAddItem}>
