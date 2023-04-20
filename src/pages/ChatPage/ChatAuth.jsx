@@ -1,19 +1,8 @@
 import React from 'react'
 import axios from 'axios'
-import { useEffect } from 'react';
-
-useEffect( function() {
-    async function autoSubmit() {
-    const TripList = await TripsAPI.getAllTrips()
-    setTrips(TripList)    
-    }
-    autosubmit()
-}, [])
-
 
 const ChatAuth = (props) => {
     const user = props
-    console.log('CHATAUTH USER', user.user.name )
     const onSubmit = (e) => {
         e.preventDefault();
         const { value } = e.target[0];

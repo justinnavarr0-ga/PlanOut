@@ -4,7 +4,6 @@ import TripDetailsPage from '../../pages/TripDetailsPage/TripDetailsPage'
 
 
 export default function Trip({trip, trips, allUsers}) {
-    console.log('Trip like just the word', trip)
 
 const [showDetails, setShowDetails] = useState(false)
 
