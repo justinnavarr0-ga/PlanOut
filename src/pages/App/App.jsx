@@ -27,7 +27,7 @@ export default function App() {
           <NavBar user={user} updateUser={updateUser}/>
           <Routes>
             <Route path="/chat" element={<ChatApp user={user}/>} />
-            <Route path="/trips" element={<TripPage/>}/>
+            <Route path="/trips" element={<TripPage user={user}/>}/>
             <Route path="/checklist" element={<MyCheckList user={user}/>}/>
           </Routes>
         </>

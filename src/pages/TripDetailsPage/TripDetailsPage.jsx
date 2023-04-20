@@ -6,8 +6,9 @@ console.log(allusers)
 const [filteredUsers, setFilteredUsers] = useState([])
 
 
-const peopleGoing = (allusers => allusers.filter((person) => person._id === users._id))
+const peopleGoing = (allusers.filter((person) => person._id === users._id))
 console.log('filteredUsers', filteredUsers)
+console.log('pplgoing', peopleGoing)
 return (
     <>
      <div>
