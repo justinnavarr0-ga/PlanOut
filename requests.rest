@@ -1,4 +1,4 @@
-POST http://localhost:3000/api/chat/authenticate
+POST https://planout.herokuapp.com/api/chat/authenticate
 Content-Type: application/json
 
 {

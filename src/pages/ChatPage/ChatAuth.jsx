@@ -6,7 +6,7 @@ const ChatAuth = (props) => {
     const onSubmit = (e) => {
         e.preventDefault();
         const { value } = e.target[0];
-        axios.post('http://localhost:3000/api/chat/authenticate', {username: value} )
+        axios.post('https://planout.herokuapp.com/api/chat/authenticate', {username: value} )
         .then(res => props.onAuth({ username: value, secret: value }));
       };
 return (

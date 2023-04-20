@@ -1,21 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import TripDetail from '../../components/TripDetail/TripDetail';
+import React from 'react'
+import { useState, useEffect } from 'react'
+import * as TripsAPI from '../../utilities/trips-api'
+import * as usersAPI from '../../utilities/users-api'
 
-export default function TripDetailsPage() {
-  const location = useLocation();
-  const [tripElement, setTripElement] = useState(null);
-  console.log(tripElement)
-  useEffect(() => {
-    if (location.state && location.state.element) {
-      setTripElement(location.state.element);
+import { useParams } from 'react-router-dom'
+
+export default function TripDetailsPage({users}) {
+  const [allUsers, setAllUsers] = useState([])
+  const [trips, setTrips] = useState([])
+
+  useEffect( function() {
+    async function getAllTrips() {
+    const TripList = await TripsAPI.getAllTrips()
+    setTrips(TripList)    
     }
-  }, [location]);
+    getAllTrips()
+}, [])
+
+
+  useEffect( function() {
+    async function getAllUsers() {
+    const users = await usersAPI.getAllUsers() 
+    setAllUsers(users)
+    console.log(users)
+  }
+    getAllUsers()
+}, [])
+
+  const thisTripsId = useParams()
+  console.log(thisTripsId.id)
+  console.log(trips)
+  const Trip = trips.find((trip) => trip._id === thisTripsId.id )
+  console.log(Trip)
+
 
   return (
     <div>
-      <h1>hello</h1>
-      <TripDetail tripElement={tripElement} />
+      <h1>Trip Name</h1>
+    
     </div>
   );
 }

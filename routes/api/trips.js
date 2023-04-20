@@ -9,5 +9,7 @@ router.get('/', tripsCtrl.index)
 
 router.post('/new', tripsCtrl.addTrip)
 
+router.delete('/:id', tripsCtrl.deleteTrip)
+
 
 module.exports = router;

@@ -13,3 +13,7 @@ export function createTrip(newTrip){
 export function showTrip(trip){
     return sendRequest(`${BASE_URL}/:tripName`, trip)
 }
+
+export async function deleteTrip(id) {
+    return sendRequest(`${BASE_URL}/${id}`, 'DELETE', id)
+}

@@ -4,7 +4,8 @@ const Trip = require('../../models/Trip')
 
 module.exports = {
     index,
-    addTrip
+    addTrip,
+    deleteTrip
 }
 
 async function index(req, res) {
@@ -35,4 +36,14 @@ async function addTrip(req, res) {
      console.error(`${err}`);   
     }
     
+}
+
+async function deleteTrip(req, res) {
+    console.log(req.params)
+    try {
+    const tripName = await Trip.findByIdAndDelete(req.body.id)
+    res.json(tripName)
+    } catch (err) {
+        console.error(`${err}`);
+    }
 }
