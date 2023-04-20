@@ -31,14 +31,10 @@ export default function TripPage({user}) {
 
   return (
     <>
+    <br />
+    
         <TripList user={user} allUsers={allUsers} trips={trips} setTrips={setTrips}/>
         {!showForm && <TripForm user={user} allUsers={allUsers} trips={trips} setTrips={setTrips} setShowForm={setShowForm} showForm={showForm}/> }
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         {showForm && <AddTripButton setShowForm={setShowForm} showForm={showForm}/> }
     </>
     

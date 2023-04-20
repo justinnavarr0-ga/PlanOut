@@ -21,7 +21,13 @@ const changeToComplete = async (evt) => {
   console.log(evt)
   const checklistItem = await checklistAPI.markComplete(evt)
   console.log("LINE 26 CHECKLISTITEM", checklistItem)
-  setComplete(!checklistItem.complete)
+  console.log("LINE 26 CHECKLISTITEM", checklist)
+  setChecklist(checklist => checklist.map((item) => {
+    if (item._id === checklistItem._id) {
+      item.complete = checklistItem.complete
+    }
+    return item
+  }))
 }
 
 const handleAddItem = async (evt) => {

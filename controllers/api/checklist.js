@@ -8,7 +8,9 @@ module.exports = {
 
 async function update(req, res){
     try {
-        const checklist = await Checklist.findByIdAndUpdate(req.body.id)
+        const checklist = await Checklist.findById(req.body.id)
+        checklist.complete = !checklist.complete
+        checklist.save()
         res.json(checklist)
     } catch (err) {
         console.error(`${err}`);
