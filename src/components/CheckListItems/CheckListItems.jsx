@@ -6,7 +6,7 @@ export default function CheckListItems({changeToComplete, checklist, setChecklis
   return (
     <ul>
         {checklist.map((item) => (
-        <ListItem changeToComplete={changeToComplete} item={item} key={item._id} handleDelete={handleDelete} checklist={checklist} setChecklist={setChecklist} />))}
+        <ListItem item={item} key={item._id} handleDelete={handleDelete} checklist={checklist} setChecklist={setChecklist} />))}
     </ul>
   )
 }

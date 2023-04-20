@@ -9,3 +9,7 @@ export function getAllTrips(){
 export function createTrip(newTrip){
     return sendRequest(`${BASE_URL}/new`, 'POST', newTrip)
 }
+
+export function showTrip(trip){
+    return sendRequest(`${BASE_URL}/:tripName`, trip)
+}

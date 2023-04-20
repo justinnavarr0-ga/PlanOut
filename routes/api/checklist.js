@@ -10,4 +10,6 @@ router.post('/new', checklistCtrl.add);
 
 router.delete('/:id', checklistCtrl.delete)
 
+router.put('/complete', checklistCtrl.update)
+
 module.exports = router;

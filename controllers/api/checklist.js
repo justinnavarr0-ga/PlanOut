@@ -2,7 +2,17 @@ const Checklist = require('../../models/checklist')
 module.exports = {
     show,
     add,
-    delete: deleteOne
+    delete: deleteOne,
+    update
+}
+
+async function update(req, res){
+    try {
+        const checklist = await Checklist.findByIdAndUpdate(req.body.id)
+        res.json(checklist)
+    } catch (err) {
+        console.error(`${err}`);
+    }
 }
 
 async function show(req, res) {

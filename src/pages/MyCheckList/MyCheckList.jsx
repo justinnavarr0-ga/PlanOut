@@ -6,24 +6,22 @@ export default function MyCheckList({user}) {
 const [me, setMe] = useState(user)
 const [checklist, setChecklist] = useState([])
 const [newItem, setNewItem] = useState('')
-const [complete, setComplete] = useState(true)
+const [complete, setComplete] = useState(false)
 
 useEffect( function() {
-    console.log('This is the user in MyCheckList', user.name)
-    console.log('This is the user in MyCheckList', user._id)
-    console.log('This is the me in MyCheckList', me._id)
     async function getChecklist() {
     const checklist = await checklistAPI.getWholeChecklist()
-    console.log(checklist)
-    setChecklist(checklist.filter(item => item.user === me._id))    
+    setChecklist(checklist.filter(item => item.user === me._id))  
+    //maybe i can use this in the trips too  
     }
     getChecklist()
 }, [])
 
 const changeToComplete = async (evt) => {
-  evt.preventDefault()
+  console.log(evt)
   const checklistItem = await checklistAPI.markComplete(evt)
-  setComplete(checklistItem.complete === true)
+  console.log("LINE 26 CHECKLISTITEM", checklistItem)
+  setComplete(!checklistItem.complete)
 }
 
 const handleAddItem = async (evt) => {
@@ -34,15 +32,10 @@ const handleAddItem = async (evt) => {
 }
 
 const handleDelete = async (evt) => {
-    console.log('MYCHECKLIST handleDelete function', evt)
     const checklistItem = await checklistAPI.deleteItem(evt)
-    console.log('checklist', checklist)
-    console.log('DELETE THIS ITEM', checklistItem)
-    console.log('checklist again', checklist)
-    // setChecklist(checklist)
     setChecklist(checklist => checklist.filter(item => item._id !== checklistItem._id))
     //this bothered me so much because i forgot that when i pass it into the API it had to match the :id 
-    //still does not update immediately
+
 }
 
 const handleChange = (evt) => {
