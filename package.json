@@ -25,7 +25,8 @@
     "react-chat-engine-pretty": "^0.1.8",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
-    "websocket": "^1.0.34"
+    "websocket": "^1.0.34",
+    "ws": "^8.13.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
