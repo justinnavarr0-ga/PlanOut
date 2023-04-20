@@ -2,6 +2,9 @@
   "name": "mern-infrastructure",
   "private": true,
   "version": "0.0.0",
+  "engines": {
+    "node": "19.6.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
