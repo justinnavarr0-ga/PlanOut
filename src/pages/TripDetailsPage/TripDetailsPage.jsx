@@ -6,13 +6,15 @@ console.log(allusers)
 const [filteredUsers, setFilteredUsers] = useState([])
 
 
-const tripsmap =trips.map((trip) => trip.users)
+const tripsmap = trips.map((trip) => trip.users)
 console.log("tripsmap", tripsmap)
-const people = (allusers.map((person) => person.name))
+const people = (allusers.map((person) => person._id))
+const peopleNames = (allusers.map((person) => person.name))
 const peopleGoing = (trips.filter((person) => person._id === users._id))
 
 
-console.log('THIS ONE CONTAINS ALL THE USERS NAMES IN THE DATABASE', people)
+console.log('THIS ONE CONTAINS ALL THE USERS IDs IN THE DATABASE', people)
+console.log('THIS ONE CONTAINS ALL THE USERS names IN THE DATABASE', peopleNames)
 console.log('THIS ONE CONTAINS ALL THE USERS IN EACH TRIP', tripsmap)
 
 return (
