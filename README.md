@@ -64,7 +64,6 @@ PlanOut also had a chat feature where you could chat with other users that utili
 
 ![Screenshot 2023-04-21 at 12 26 13 AM](https://user-images.githubusercontent.com/107282884/233577407-d5558ffd-db79-477f-8ead-e036dbbf125d.png)
 
-#### Favorite Snippets of Code
 
 ## Roadmap
 
