@@ -5,7 +5,7 @@ import TripForm from '../../components/TripForm/TripForm'
 import AddTripButton from '../../components/AddTripButton/AddTripButton'
 import TripList from '../../components/TripList/TripList'
 import * as usersAPI from '../../utilities/users-api'
-import TripDetailsPage from '../TripDetailsPage/TripDetailsPage'
+
 
 export default function TripPage({user}) {
   const [allUsers, setAllUsers] = useState([])
@@ -39,11 +39,11 @@ export default function TripPage({user}) {
   
 
   return (
-    <>
+    <div className="h-screen w-full bg-gradient-to-t dark:bg-gray-300">
         <TripList deleteTrip={DeleteTrip} user={user} allUsers={allUsers} trips={trips} setTrips={setTrips}/>
         {!showForm && <TripForm user={user} allUsers={allUsers} trips={trips} setTrips={setTrips} setShowForm={setShowForm} showForm={showForm}/> }
         {showForm && <AddTripButton setShowForm={setShowForm} showForm={showForm}/> }
-    </>
+    </div>
     
   )
 }

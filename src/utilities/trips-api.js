@@ -11,9 +11,13 @@ export function createTrip(newTrip){
 }
 
 export function showTrip(trip){
-    return sendRequest(`${BASE_URL}/:tripName`, trip)
+    return sendRequest(`${BASE_URL}/:id`, trip)
 }
 
 export async function deleteTrip(id) {
     return sendRequest(`${BASE_URL}/${id}`, 'DELETE', id)
+}
+
+export async function updateTrip(id) {
+    return sendRequest(`${BASE_URL}/${id._id}`, 'PUT', id)
 }

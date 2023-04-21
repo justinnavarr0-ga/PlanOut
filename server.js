@@ -7,7 +7,12 @@ const logger = require('morgan');
 require('dotenv').config();
 require('./config/database');
 const app = express();
+const { WebSocketServer } = require('ws');
+const http = require('http');
 
+// Spinning the http server and the WebSocket server.
+const server = http.createServer();
+const wsServer = new WebSocketServer({ server });
 //middleware
 app.use(logger('dev'));
 app.use(express.json());
@@ -19,7 +24,7 @@ app.use(cors({ origin: true }));
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/checklist', require('./routes/api/checklist'))
 app.use('/api/trips', require('./routes/api/trips'))
-app.use('/api/chat', require('./routes/api/chat'))
+// app.use('/api/chat', require('./routes/api/chat'))
 
 //catch all
 app.get('/*', function (req, res) {

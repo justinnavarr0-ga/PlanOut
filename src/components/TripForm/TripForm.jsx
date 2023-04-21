@@ -5,9 +5,6 @@ import * as TripsAPI from '../../utilities/trips-api'
 
 export default function TripForm({trips, setTrips, showForm, setShowForm, allUsers}) {
 
-
-
-
 const [newTrip, setNewTrip] = useState('')
 const [friends, setFriends] = useState([])
 

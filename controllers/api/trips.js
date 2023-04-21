@@ -5,7 +5,8 @@ const Trip = require('../../models/Trip')
 module.exports = {
     index,
     addTrip,
-    deleteTrip
+    deleteTrip,
+    update
 }
 
 async function index(req, res) {
@@ -20,7 +21,7 @@ async function index(req, res) {
 
 async function addTrip(req, res) {
 
-    console.log("BODY", req.body)
+    console.log("BODY", req.body._id)
     console.log("users", req.body.users)
     console.log("NAME",req.body.name)
     try {
@@ -39,7 +40,7 @@ async function addTrip(req, res) {
 }
 
 async function deleteTrip(req, res) {
-    console.log(req.params)
+    console.log(req.body.id)
     try {
     const tripName = await Trip.findByIdAndDelete(req.body.id)
     res.json(tripName)
@@ -47,3 +48,22 @@ async function deleteTrip(req, res) {
         console.error(`${err}`);
     }
 }
+
+async function update(req, res) {
+    console.log(req.body)
+    try {
+      const currentTrip = await Trip.findByIdAndUpdate(req.body._id);
+      console.log("IN CONTROLLER CURRENT TRIP", currentTrip)
+      if (!currentTrip) {
+        return res.status(404).json({ error: 'Trip not found' });
+      }
+      currentTrip.name = req.body.name;
+      currentTrip.users = req.body.users;
+      currentTrip.tripChecklist = req.body.tripChecklist;
+      currentTrip.Destination = req.body.Destination;
+        currentTrip.save();
+      res.json(currentTrip);
+    } catch (err) {
+      console.error(`${err}`);
+    }
+  }

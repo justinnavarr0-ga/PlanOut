@@ -11,5 +11,7 @@ router.post('/new', tripsCtrl.addTrip)
 
 router.delete('/:id', tripsCtrl.deleteTrip)
 
+router.put('/:id', tripsCtrl.update)
+
 
 module.exports = router;

@@ -13,7 +13,6 @@ const TripTodoSchema = new Schema({
 const TripSchema = new Schema({
     name: {type: String, required: true},
     users: [{ type: Schema.Types.ObjectId, ref: 'User'}],
-
     tripChecklist: [TripTodoSchema], 
     Destination: String,
     
@@ -22,10 +21,6 @@ const TripSchema = new Schema({
   }
 )
 
-// TripSchema.methods.addUser = async function (userID) {
-//   const trip = this;
-//   const friends = trip.users.find(friends => friends. )
-// }
 
 const Trip = mongoose.model("Trip", TripSchema)
 
