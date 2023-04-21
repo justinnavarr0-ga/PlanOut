@@ -32,7 +32,7 @@ export default function App() {
           <Routes>
             <Route path="/trips" element={<TripPage user={user}/>}/>
             <Route path="/checklist" element={<MyCheckList user={user}/>}/>
-            <Route path="/*" element={<HomePage/>}/>
+            <Route path="/" element={<HomePage/>}/>
           </Routes>
         </>
         :
