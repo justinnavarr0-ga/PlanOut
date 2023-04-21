@@ -7,6 +7,7 @@ import { getUser } from '../../utilities/users-service';
 
 import TripPage from '../TripPage/TripPage';
 import MyCheckList from '../MyCheckList/MyCheckList';
+import HomePage from '../HomePage/HomePage';
 
 
 
@@ -31,6 +32,7 @@ export default function App() {
           <Routes>
             <Route path="/trips" element={<TripPage user={user}/>}/>
             <Route path="/checklist" element={<MyCheckList user={user}/>}/>
+            <Route path="/*" element={<HomePage/>}/>
           </Routes>
         </>
         :
